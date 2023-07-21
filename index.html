@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Echo Brief - Summarize Your Online Meetings</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    /* Add custom CSS styles here */
+    body {
+      background-color: #EFE7F6;
+      color: #333333;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Header */
+    header {
+      background-color: #6A1B9A;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      border-radius: 0 0 20px 20px;
+      transform: translateY(0);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #FFFFFF;
+      animation: logoFade 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes logoFade {
+      0% {
+        opacity: 0.6;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #FFFFFF;
+    }
+
+    /* Hero Section */
+    #hero {
+      background-color: #FFFFFF;
+      padding: 100px 20px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      margin-bottom: 30px;
+      transform: translateY(0);
+      transition: transform 0.5s ease-in-out;
+    }
+
+    #hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #6A1B9A;
+      animation: heroFade 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroFade {
+      0% {
+        opacity: 0.8;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    #hero p {
+      font-size: 20px;
+      margin-bottom: 40px;
+      color: #6A1B9A;
+      animation: heroSlide 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroSlide {
+      0% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #6A1B9A;
+      color: #FFFFFF;
+      padding: 12px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #4A148C;
+    }
+
+    /* Feature Section */
+    .feature {
+      background-color: #FFFFFF;
+      padding: 50px;
+      margin-bottom: 30px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      animation: featureFade 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes featureFade {
+      0% {
+        opacity: 0.8;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Buy Now Section */
+    #buy-now {
+      background-color: #FFFFFF;
+      padding: 100px 20px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      margin-bottom: 30px;
+      transform: translateY(0);
+      transition: transform 0.5s ease-in-out;
+    }
+
+    #buy-now h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #6A1B9A;
+      animation: buyNowFade 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes buyNowFade {
+      0% {
+        opacity: 0.8;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    #buy-now p {
+      font-size: 18px;
+      margin-bottom: 40px;
+      color: #6A1B9A;
+      animation: buyNowSlide 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes buyNowSlide {
+      0% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    /* Founder Section */
+    #about-us {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #F9F5FF;
+      padding: 40px 0;
+    }
+
+    .founder-profile {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .profile-item {
+      flex-basis: calc(33.33% - 60px);
+      padding: 20px;
+      text-align: center;
+      background-color: #FFFFFF;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .profile-item:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    .profile-item img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .profile-item h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #6A1B9A;
+      opacity: 0.8;
+      transition: color 0.3s ease;
+    }
+
+    .profile-item p {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #333333;
+      opacity: 0.8;
+      transition: color 0.3s ease;
+    }
+
+    .profile-item:hover {
+      transform: scale(1.05);
+      background-color: #F3E5F5;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .profile-item:hover h3,
+    .profile-item:hover p {
+      color: #6A1B9A;
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .profile-item {
+        flex-basis: 100%;
+      }
+      .profile-item:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Sticky header animation */
+    .sticky {
+      transform: translateY(-100%);
+    }
+      
+     
+    /* Dark Mode */
+    .dark-mode body {
+      background-color: #2C2735;
+      color: #FFFFFF;
+    }
+
+    .dark-mode header {
+      background-color: #4527A0;
+    }
+
+    .dark-mode .logo {
+      color: #FFFFFF;
+    }
+
+    .dark-mode nav ul li a {
+      color: #FFFFFF;
+    }
+
+    .dark-mode #hero {
+      background-color: #2C2735;
+      color: #FFFFFF;
+    }
+
+    .dark-mode #hero h1 {
+      color: #BB86FC;
+    }
+
+    .dark-mode #hero p {
+      color: #BB86FC;
+    }
+
+    .dark-mode .btn {
+      background-color: #4527A0;
+      color: #FFFFFF;
+    }
+
+    .dark-mode .btn:hover {
+      background-color: #311B92;
+    }
+
+    .dark-mode .feature {
+      background-color: #2C2735;
+      color: #FFFFFF;
+    }
+
+    .dark-mode #buy-now {
+      background-color: #2C2735;
+      color: #FFFFFF;
+    }
+
+    .dark-mode #buy-now h2 {
+      color: #BB86FC;
+    }
+
+    .dark-mode #buy-now p {
+      color: #BB86FC;
+    }
+     
+    .dark-mode #about-us {
+        background-color: #2C2735;
+          
+      }
+      
+      .dark-mode #about-us #a1 {
+        color: white;
+          
+      }
+      
+    .dark-mode .profile-item {
+      background-color: #4527A0;
+      box-shadow: 0 5px 15px #000000;
+      color: #FFFFFF;
+    }
+      .dark-mode .profile-item #R1{
+          color: #FFFFFF;
+      }
+      
+      .dark-mode .profile-item #R2{
+          color: #FFFFFF;
+      }
+      
+      .dark-mode .profile-item #R3{
+          color: #FFFFFF;
+      }
+      
+       .dark-mode .profile-item #m1{
+          color: #FFFFFF;
+      }
+      
+      .dark-mode .profile-item #m2{
+          color: #FFFFFF;
+      }
+      
+      .dark-mode .profile-item #m3{
+          color: #FFFFFF;
+      }
+
+
+    .dark-mode .profile-item:hover {
+      background-color: #311B92;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logowhite.png" alt="Logo" height="50" width="50">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#buy-now">Downloads</a></li>
+        <li><a href="#about-us">About Us</a></li>
+      </ul>
+    </nav>
+    <button id="dark-mode-toggle" onclick="toggleDarkMode()" color:#6A1B9A> <img src ="dark.png">
+        
+    </button>
+  </header>
+
+  <main>
+    <section id="hero">
+      <div class="hero-content">
+        <img src="logo.png" alt="Logo" height="500" width="500">
+        <p>Harness Insights. Summarize Your Online Meetings.</p>
+        <a href="#features" class="btn">Learn More</a>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="feature">
+        <h2>Efficient Audio Content Summarization</h2>
+        <p>EchoBrief is an AI-powered platform that automatically summarizes audio content. Using cutting-edge technology, it swiftly extracts key takeaways from lengthy meetings, presentations, and discussions, saving you valuable time.</p>
+      </div>
+      <div class="feature">
+        <h2>Streamlined Meeting Experience</h2>
+        <p>We understand the importance of productivity. EchoBrief simplifies meetings and agendas by providing concise and accurate summaries, so you can stay focused on actionable points and make informed decisions quickly</p>
+      </div>
+      <div class="feature">
+        <h2>Enhanced Collaboration and Engagement</h2>
+        <p>With EchoBrief, collaboration becomes seamless. Share summarized content effortlessly with team members and clients, ensuring everyone stays on the same page. Foster engagement by actively involving all participants with comprehensive summaries after the meeting</p>
+      </div>
+    </section>
+
+    <section id="buy-now">
+      <h2>Get Echo Brief Today!</h2>
+      <p>Start summarizing your meetings now with Echo Brief.</p>
+      <a href="2ndpage.html" class="btn">Try Now</a>
+    </section>
+
+    <section id="about-us">
+      <h2 id="a1">About Us</h2>
+      <div class="founder-profile">
+        <div class="profile-item">
+          <img src="file.jpg" alt="Founder 1">
+          <h3 id="R1">Ratnesh Kumar Ratan</h3>
+          <p id="m1">Founder and CEO.</p>
+        </div>
+        <div class="profile-item">
+          <img src="amar.jpg" alt="Founder 2">
+          <h3 id="R2">Amarjeet Aryan</h3>
+          <p id="m2">CEO and COM</p>
+        </div>
+        <div class="profile-item">
+          <img src="manish.jpg" alt="Founder 3">
+          <h3 id="R3">Manish Kumar</h3>
+          <p id="m3">Founder and BDM.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <!-- Include your footer content here -->
+  </footer>
+
+  <script>
+    // Dark Mode Toggle
+    function toggleDarkMode() {
+      const body = document.body;
+      const darkModeToggle = document.getElementById("dark-mode-toggle");
+
+      body.classList.toggle("dark-mode");
+      darkModeToggle.classList.toggle("dark-mode");
+
+      if (body.classList.contains("dark-mode")) {
+        darkModeToggle.innerHTML = `
+          <img src="dark.png">
+        `;
+      } else {
+        darkModeToggle.innerHTML = `
+          <img src="light.png">
+        `;
+      }
+    }
+
+    // Sticky header
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      header.classList.toggle('sticky', window.scrollY > 0);
+    });
+  </script>
+</body>
+</html>

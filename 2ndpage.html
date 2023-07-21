@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Echo Brief - Summarize Your Online Meetings</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    /* Add custom CSS styles here */
+    /* ... Existing CSS styles remain the same ... */
+
+    /* Upload Section */
+    #upload {
+      background-color: #6A1B9A;
+      padding: 100px 20px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      margin-bottom: 30px;
+      transform: translateY(0);
+      transition: transform 0.5s ease-in-out;
+    }
+
+    #upload h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #FFFFFF;
+      animation: uploadFade 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes uploadFade {
+      0% {
+        opacity: 0.8;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    #upload p {
+      font-size: 18px;
+      margin-bottom: 40px;
+      color: #FFFFFF;
+      animation: uploadSlide 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes uploadSlide {
+      0% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .upload-form {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .upload-form label {
+      display: block;
+      margin-bottom: 10px;
+      color: #FFFFFF;
+    }
+
+    .upload-form input[type="file"] {
+      margin-bottom: 20px;
+    }
+
+    .microphone-icon {
+      font-size: 72px;
+      margin-bottom: 20px;
+      color: #FFFFFF;
+      cursor: pointer;
+    }
+
+    /* Additional Styles */
+    body {
+      background-color: #EFE7F6;
+    }
+
+    #hero {
+      border-radius: 20px;
+    }
+
+    .feature {
+      border-radius: 20px;
+    }
+
+    #buy-now {
+      border-radius: 20px;
+    }
+
+    #about-us {
+      border-radius: 20px;
+    }
+
+    .additional-card {
+      background-color: #FFFFFF;
+      padding: 50px;
+      margin-bottom: 30px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      animation: featureFade 1.5s ease-in-out infinite alternate;
+    }
+
+    .additional-card h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #6A1B9A;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- ... Existing header content remains the same ... -->
+  </header>
+
+  <main>
+    <section id="hero">
+      <!-- ... Existing hero section content remains the same ... -->
+    </section>
+
+    <section id="features">
+      <!-- ... Existing features section content remains the same ... -->
+    </section>
+
+    <section id="upload">
+      <h2>Upload Your Audio</h2>
+      <p>Upload your audio file to summarize your meetings with Echo Brief.</p>
+      <form id="uploadForm" class="upload-form">
+        <label for="audioFile">Select an audio file:</label>
+        <input type="file" id="audioFile" accept="audio/*" required>
+        <div class="microphone-icon" onclick="fetchAudio()">
+          <i class="fas fa-microphone"></i>
+        </div>
+        <button type="submit">Upload</button>
+      </form>
+    </section>
+
+    <section id="buy-now">
+      <!-- ... Existing buy-now section content remains the same ... -->
+    </section>
+
+    <section id="about-us">
+      <!-- ... Existing about-us section content remains the same ... -->
+    </section>
+
+    <section class="additional-card">
+      <h2>Fetch Audio from System</h2>
+      <div class="microphone-icon" onclick="fetchAudio()">
+        <i class="fas fa-microphone"></i>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <!-- Include your footer content here -->
+  </footer>
+
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+  <script>
+    // JavaScript code for handling the form submission
+    const form = document.getElementById('uploadForm');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault(); // Prevent the default form submission
+
+      const fileInput = document.getElementById('audioFile');
+      const file = fileInput.files[0];
+
+      if (file) {
+        // Perform any necessary validations on the file here
+        // For example, check the file type, size, etc.
+
+        // You can now upload the file using AJAX or fetch
+        // Here, we are simply logging the file details
+        console.log('File Name:', file.name);
+        console.log('File Type:', file.type);
+        console.log('File Size:', file.size);
+
+        // Reset the form
+        form.reset();
+      } else {
+        alert('Please select an audio file.');
+      }
+    });
+
+    // JavaScript code for handling the microphone button click event
+    function fetchAudio() {
+      // Add your code to fetch audio from the system here
+      // This could involve using the Web Audio API or other libraries
+      console.log('Fetching audio from the system...');
+    }
+  </script>
+</body>
+</html>
