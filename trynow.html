@@ -116,17 +116,14 @@
   </style>
 </head>
 <body>
-  <header>
-    <!-- ... Existing header content remains the same ... -->
-  </header>
 
   <main>
     <section id="hero">
-      <!-- ... Existing hero section content remains the same ... -->
+      
     </section>
 
     <section id="features">
-      <!-- ... Existing features section content remains the same ... -->
+      
     </section>
 
     <section id="upload">
@@ -143,11 +140,11 @@
     </section>
 
     <section id="buy-now">
-      <!-- ... Existing buy-now section content remains the same ... -->
+      
     </section>
 
     <section id="about-us">
-      <!-- ... Existing about-us section content remains the same ... -->
+      
     </section>
 
     <section class="additional-card">
@@ -158,42 +155,33 @@
     </section>
   </main>
 
-  <footer>
-    <!-- Include your footer content here -->
-  </footer>
 
   <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
   <script>
-    // JavaScript code for handling the form submission
+    
     const form = document.getElementById('uploadForm');
 
     form.addEventListener('submit', (event) => {
-      event.preventDefault(); // Prevent the default form submission
+      event.preventDefault();
 
       const fileInput = document.getElementById('audioFile');
       const file = fileInput.files[0];
 
       if (file) {
-        // Perform any necessary validations on the file here
-        // For example, check the file type, size, etc.
-
-        // You can now upload the file using AJAX or fetch
-        // Here, we are simply logging the file details
+        
         console.log('File Name:', file.name);
         console.log('File Type:', file.type);
         console.log('File Size:', file.size);
 
-        // Reset the form
+        
         form.reset();
       } else {
         alert('Please select an audio file.');
       }
     });
 
-    // JavaScript code for handling the microphone button click event
     function fetchAudio() {
-      // Add your code to fetch audio from the system here
-      // This could involve using the Web Audio API or other libraries
+     
       console.log('Fetching audio from the system...');
     }
   </script>
